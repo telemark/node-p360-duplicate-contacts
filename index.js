@@ -1,22 +1,25 @@
+#! /usr/bin/env node
 'use strict'
 
 require.extensions['.sql'] = function (module, filename) {
   module.exports = fs.readFileSync(filename, 'utf8')
 }
 
-
 // External requirements
 var fs = require('fs')
+var opn = require('opn')
 
 // Local requirements
-var config = require('./config')
 var runQuery = require('./lib/runQuery')
 
 var qryFindDuplicateContacts = require('./lib/sql/findDuplicateContacts.sql')
 var qryGetStudentFolders = require('./lib/sql/getStudentFolders.sql')
 
+var filename = process.argv[2] + '.txt'
 
-function getListFromDb(callback) {
+var query
+
+function getListFromDb (callback) {
   runQuery(query, function (err, data) {
     if (err) {
       return callback(err)
@@ -27,11 +30,11 @@ function getListFromDb(callback) {
 
 switch (process.argv[2]) {
   case 'elevmappe':
-    var query = qryGetStudentFolders
-    break;
+    query = qryGetStudentFolders
+    break
   case 'kontakt':
-    var query = qryFindDuplicateContacts
-    break;
+    query = qryFindDuplicateContacts
+    break
   default:
     console.log('Bruk med parameter kontakt eller elevmappe')
     process.exit(1)
@@ -42,12 +45,12 @@ getListFromDb(function (err, data) {
     console.log(err)
     process.exit(1)
   }
-  var i = 0
+  var list = []
+
   data.forEach(function (item) {
-    console.log(item.id)
-    i++
-    if (data.length === i) {
-      process.exit(0)
-    }
+    list.push(item.id)
   })
+  fs.writeFileSync(filename, list.join('\n'))
+  opn(filename)
+  process.exit(0)
 })

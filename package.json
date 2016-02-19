@@ -1,9 +1,8 @@
 {
   "name": "p360-duplicate-contacts",
   "description": "Gets list of duplicate contacts from 360 database",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
-  "private": true,
   "author": {
     "name": "Jonas Enge",
     "email": "jonas.enge@t-fk.no",
@@ -17,7 +16,10 @@
     }
   ],
   "engines": {
-    "node": ">=4.1.0"
+    "node": ">=4.3.1"
+  },
+  "bin": {
+    "p360-duplicates": "index.js"
   },
   "scripts": {
     "start": "node standalone.js",
@@ -28,7 +30,8 @@
     "generate": "node utils/generateTestToken.js"
   },
   "dependencies": {
-    "mssql": "^2.2.0"
+    "mssql": "^2.2.0",
+    "opn": "^4.0.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.6",
