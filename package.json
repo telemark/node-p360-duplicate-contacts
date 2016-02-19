@@ -1,0 +1,38 @@
+{
+  "name": "p360-duplicate-contacts",
+  "description": "Gets list of duplicate contacts from 360 database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Jonas Enge",
+    "email": "jonas.enge@t-fk.no",
+    "url": "https://github.com/maccyber"
+  },
+  "contributors": [
+    {
+      "name": "Geir Gåsodden",
+      "email": "geir.gasodden@pythonia.no",
+      "url": "https://github.com/zrrrzzt"
+    }
+  ],
+  "engines": {
+    "node": ">=4.1.0"
+  },
+  "scripts": {
+    "start": "node standalone.js",
+    "test": "standard && tap --reporter=spec test/*.js",
+    "setup": "npm install && node setup.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "generate": "node utils/generateTestToken.js"
+  },
+  "dependencies": {
+    "mssql": "^2.2.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "standard": "^5.4.1",
+    "tap": "^2.3.2"
+  }
+}
