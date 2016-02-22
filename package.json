@@ -27,6 +27,13 @@
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/telemark/node-p360-duplicate-contacts.git"
+  },
+  "bugs": {
+    "url": "http://github.com/telemark/node-p360-duplicate-contacts/issues"
+  },
   "dependencies": {
     "mssql": "^2.2.0",
     "opn": "^4.0.0"
