@@ -6,6 +6,8 @@ SELECT
     ca_unoffdesc
   LIKE
     'Elevmappe -%'
+  AND
+    ca_closeddate IS NULL
   ORDER BY
     ca_unoffdesc
 
