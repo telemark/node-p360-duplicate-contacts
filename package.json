@@ -1,7 +1,7 @@
 {
   "name": "p360-duplicate-contacts",
   "description": "Gets list of duplicate contacts from 360 database",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "author": {
     "name": "Jonas Enge",
