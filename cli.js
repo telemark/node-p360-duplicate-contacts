@@ -23,7 +23,7 @@ getListFromDb(query, function (error, data) {
   var list = []
 
   data.forEach(function (item) {
-    list.push(item.id)
+    list.push(item.tittel)
   })
 
   fs.writeFileSync(filename, list.join('\n'))
