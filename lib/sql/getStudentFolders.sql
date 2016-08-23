@@ -1,5 +1,5 @@
 SELECT
-    ca_unoffdesc as id
+    ca_unoffdesc as tittel, COUNT(*) as antall
   FROM
     PROD360.dbo.ca_case
   WHERE
@@ -8,7 +8,7 @@ SELECT
     'Elevmappe -%'
   AND
     ca_closeddate IS NULL
-  ORDER BY
+  GROUP BY
     ca_unoffdesc
-
-
+  HAVING
+    COUNT(*) > 1
