@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "mssql": "2.5.0",
-    "opn": "4.0.2"
+    "opn": "5.3.0"
   },
   "devDependencies": {
     "coveralls": "3.0.1",
