@@ -35,7 +35,7 @@
     "url": "http://github.com/telemark/node-p360-duplicate-contacts/issues"
   },
   "dependencies": {
-    "mssql": "2.5.0",
+    "mssql": "5.1.5",
     "opn": "5.5.0"
   },
   "devDependencies": {
